@@ -1,14 +1,14 @@
 name: Kernel CI
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  #push:
+  #  branches: [ main ]
+  #pull_request:
+  #  branches: [ main ]
   workflow_dispatch:
     # manual trigger
-  schedule:
-    - cron: '0 6,14,22 * * *'
+  #schedule:
+  #  - cron: '0 6,14,22 * * *'
 
 env:
   IS_LTS: NO
@@ -78,7 +78,7 @@ jobs:
               "${{ github.event_name }}" = 'pull_request' ]]; then
           echo "REBUILD_FLAG=1" | tee -a $GITHUB_ENV
         else 
-          echo "REBUILD_FLAG=" | tee -a $GITHUB_ENV
+          echo "REBUILD_FLAG=1" | tee -a $GITHUB_ENV
         fi
 
     - name: Initialize ccache
